@@ -1,0 +1,9 @@
+{
+  "liveServer.settings.root": "/",
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.CustomBrowser": "chrome", 
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "files.autoSave": "off",
+  "emmet.includeLanguages": { "javascript": "javascriptreact" }
+}
