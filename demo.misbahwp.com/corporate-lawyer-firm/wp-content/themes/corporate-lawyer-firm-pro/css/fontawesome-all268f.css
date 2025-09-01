@@ -2673,3 +2673,25 @@ readers do not read off random characters that represent icons */
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
+
+
+  
+/* Mantém o alias e cobre qualquer deslize com .fas também */
+.far.fa-whatsapp,
+.fas.fa-whatsapp{ font-family:'Font Awesome 5 Brands'!important; font-weight:normal!important; }
+
+/* layout + transição */
+.contact-link{ display:inline-flex; align-items:center; gap:.35em; }
+.contact-icon{ transition: transform .2s ease, filter .2s ease; }
+
+/* cor base e “glow” como o telefone */
+.contact-link .fa-whatsapp{
+  color:#25D366;
+  text-shadow:0 0 6px rgba(37,211,102,.18);
+}
+
+/* hover igual ao do telefone */
+.contact-link:hover .contact-icon{
+  transform:translateY(-1px);
+  filter:brightness(1.1);
+}
