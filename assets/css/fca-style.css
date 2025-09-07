@@ -1,0 +1,176 @@
+/* ==========================================================================
+   1. FUNDAMENTOS E VARIÁVEIS DO PROJETO FCA ADVOCACIA
+   ========================================================================== */
+
+:root {
+  --cor-primaria: #BF9874; /* Dourado / Ocre */
+  --cor-secundaria: #001025; /* Azul Escuro */
+  --cor-texto: #626B7D; /* Cinza do Corpo de Texto */
+  --cor-fundo-claro: #EAF1FA; /* Azul muito claro de fundo */
+  --cor-branco: #ffffff;
+  --cor-preto: #000000;
+
+  --fonte-principal: 'Poppins', sans-serif;
+  --fonte-titulos: 'Cormorant Garamond', serif;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto);
+  margin: 0;
+  background-color: var(--cor-branco);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fonte-titulos);
+  color: var(--cor-secundaria);
+}
+
+a {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+
+.header-menu {
+  background-color: var(--cor-branco);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.menu-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* --- 2.1 Logo --- */
+.logo a {
+  display: inline-block;
+}
+
+.logo-image img {
+  max-width: 200px; /* Definindo um tamanho máximo para o logo */
+  height: auto;
+}
+
+/* --- 2.2 Navegação Principal (Desktop) --- */
+#main-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Centraliza os itens no espaço disponível */
+}
+
+#main-menu li {
+  margin: 0 15px;
+}
+
+#main-menu a {
+  display: block;
+  padding: 10px 5px;
+  color: var(--cor-secundaria);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15px;
+  position: relative; /* Para o efeito de hover */
+}
+
+#main-menu a:hover,
+#main-menu .current-menu-item a { /* Estilo para página ativa */
+  color: var(--cor-primaria);
+}
+
+/* --- 2.3 Caixa de Contato (Vazia por enquanto) --- */
+.contact-info {
+  background-color: var(--cor-primaria);
+  min-height: 50px; /* Apenas para manter a altura visual */
+  padding: 25px 20px; /* Replicado do estilo antigo */
+}
+
+/* --- 2.4 Menu Mobile (Hamburguer) --- */
+.open-menu {
+  display: none; /* Escondido em telas grandes */
+  text-align: right;
+  padding-right: 15px; /* Alinhamento */
+}
+
+.open-menu span {
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--cor-secundaria);
+}
+
+.sidenav {
+  height: 100%;
+  width: 0; /* Inicia fechado */
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  background-color: var(--cor-branco);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  
+  
+/* ==========================================================================
+   4. SEÇÃO SOBRE NÓS (ABOUT US)
+   ========================================================================== */
+
+/* --- 4.1 Estilos Gerais da Seção --- */
+#about_us {
+  background-color: var(--cor-branco);
+}
+
+.sec-padd {
+  padding: 100px 0;
+}
+
+#about_us .subtitle {
+  color: var(--cor-primaria);
+  font-family: var(--fonte-principal);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+#about_us h2 {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+#about_us .sec-text {
+  line-height: 1.8;
+}
+
+/* --- 4.2 Boxes de Foco e Experiência --- */
+.vision-mission-sec .hover-box {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 8px; /* Borda sutil para o efeito de sombra */
+}
+
+.vision-mission-sec .hover  
