@@ -1,18 +1,33 @@
 /* ==========================================================================
-   1. FUNDAMENTOS E VARIÁVEIS DO PROJETO FCA ADVOCACIA
+   FCA Advocacia Estático - Folha de Estilos Principal
+   Versão: 1.1 (Reorganizada)
+   Data: 08 de setembro de 2025
+   ---
+   ÍNDICE:
+   1. FUNDAMENTOS E VARIÁVEIS
+   2. COMPONENTES E UTILITÁRIOS GLOBAIS
+   3. CABEÇALHO E NAVEGAÇÃO (GLOBAL)
+   4. RODAPÉ (GLOBAL)
+   5. BOTÃO VOLTAR AO TOPO (GLOBAL)
+   6. PÁGINA: HOME (Sobre Nós)
+   8. PÁGINA: FALE CONOSCO
+   9. AJUSTES RESPONSIVOS (MEDIA QUERIES)
    ========================================================================== */
 
+/* ==========================================================================
+   1. FUNDAMENTOS E VARIÁVEIS
+   ========================================================================== */
 :root {
   --cor-primaria: #BF9874; /* Dourado / Ocre */
   --cor-secundaria: #001025; /* Azul Escuro */
   --cor-texto: #626B7D; /* Cinza do Corpo de Texto */
-  --cor-fundo-claro: #EAF1FA; /* Azul muito claro de fundo */
+  --cor-fundo-claro: #EAF1FA;
   --cor-branco: #ffffff;
   --cor-preto: #000000;
-
   --fonte-principal: 'Poppins', sans-serif;
   --fonte-titulos: 'Cormorant Garamond', serif;
 }
+
 
 body {
   font-family: var(--fonte-principal);
@@ -26,6 +41,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--fonte-titulos);
   color: var(--cor-secundaria);
+  font-weight: 700;
 }
 
 a {
@@ -40,15 +56,40 @@ a:hover {
 }
 
 /* ==========================================================================
-   2. CABEÇALHO E NAVEGAÇÃO
+   2. COMPONENTES E UTILITÁRIOS GLOBAIS
    ========================================================================== */
+.sec-padd {
+  padding: 100px 0;
+}
 
+.btn {
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+  display: inline-block;
+  padding: 15px 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+}
+
+/* ==========================================================================
+   3. CABEÇALHO E NAVEGAÇÃO (GLOBAL)
+   ========================================================================== */
 .header-menu {
   background-color: var(--cor-branco);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1020;
   width: 100%;
 }
 
@@ -57,23 +98,28 @@ a:hover {
   padding-bottom: 15px;
 }
 
-/* --- 2.1 Logo --- */
-.logo a {
-  display: inline-block;
+/* Correção do Logo movida para dentro da seção de Cabeçalho */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    display: inline-block;
 }
 
 .logo-image img {
-  max-width: 200px; /* Definindo um tamanho máximo para o logo */
-  height: auto;
+    max-width: 200px;
+    height: auto;
+    vertical-align: middle;
 }
 
-/* --- 2.2 Navegação Principal (Desktop) --- */
 #main-menu ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
-  justify-content: center; /* Centraliza os itens no espaço disponível */
+  justify-content: center;
 }
 
 #main-menu li {
@@ -87,39 +133,37 @@ a:hover {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 15px;
-  position: relative; /* Para o efeito de hover */
+  position: relative;
 }
 
 #main-menu a:hover,
-#main-menu .current-menu-item a { /* Estilo para página ativa */
+#main-menu .current-menu-item a {
   color: var(--cor-primaria);
 }
 
-/* --- 2.3 Caixa de Contato (Vazia por enquanto) --- */
 .contact-info {
   background-color: var(--cor-primaria);
-  min-height: 50px; /* Apenas para manter a altura visual */
-  padding: 25px 20px; /* Replicado do estilo antigo */
+  min-height: 50px;
+  padding: 25px 20px;
 }
 
-/* --- 2.4 Menu Mobile (Hamburguer) --- */
 .open-menu {
-  display: none; /* Escondido em telas grandes */
+  display: none;
   text-align: right;
-  padding-right: 15px; /* Alinhamento */
+  padding-right: 15px;
 }
 
 .open-menu span {
   font-size: 30px;
   cursor: pointer;
-  color: var(--cor-secundaria);
+  color: var(--cor-primaria);
 }
 
 .sidenav {
   height: 100%;
-  width: 0; /* Inicia fechado */
+  width: 0;
   position: fixed;
-  z-index: 1001;
+  z-index: 1050;
   top: 0;
   left: 0;
   background-color: var(--cor-branco);
@@ -132,21 +176,240 @@ a:hover {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 22px;
-  
-  
+  color: var(--cor-secundaria);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: var(--cor-primaria);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+}
+
+.sidenav #main-menu-mobile ul {
+  list-style: none;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sidenav #main-menu-mobile li {
+  margin: 15px 0;
+}
+
 /* ==========================================================================
-   4. SEÇÃO SOBRE NÓS (ABOUT US)
+   4. RODAPÉ (GLOBAL)
    ========================================================================== */
-
-/* --- 4.1 Estilos Gerais da Seção --- */
-#about_us {
-  background-color: var(--cor-branco);
+.footer-area {
+  font-weight: 300;
 }
 
-.sec-padd {
-  padding: 100px 0;
+.footer-bg {
+  background-color: var(--cor-secundaria);
+  background-image: url('../images/background/footer-bg.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  padding-top: 100px;
 }
 
+.footer-area .title {
+  color: var(--cor-branco);
+  font-size: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-area .title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 1px; /* Espessura ajustada de 2px para 1px conforme original */
+  background-color: var(--cor-primaria);
+}
+
+.footer-area .footer-logo {
+  max-width: 170px;
+  height: auto;
+}
+
+.menu-footer {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-footer li {
+  margin-bottom: 12px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.contact-list a {
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-list .contact-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-list .contact-text span {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.contact-list .contact-text strong {
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.footer-area, .footer-area p {
+    color: var(--cor-branco);
+}
+.footer-area a {
+    color: var(--cor-branco);
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+.footer-area a:hover {
+    color: var(--cor-branco);
+    opacity: 1;
+}
+.footer-area h4.title {
+    color: var(--cor-branco);
+}
+.footer-area .contact-list .contact-text strong {
+    color: var(--cor-branco);
+    opacity: 1;
+}
+.footer-area .contact-list a:hover strong,
+.footer-area .menu-footer a:hover {
+    color: var(--cor-primaria) !important;
+    opacity: 1;
+}
+.copyright-text p, .copyright-text a {
+    color: var(--cor-branco);
+    opacity: 0.85;
+}
+.copyright-text a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.contact-list i {
+    color: var(--cor-branco);
+    opacity: 0.85;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-right: 15px;
+    width: 25px;
+    text-align: center;
+    transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+.contact-list a:hover i {
+    color: var(--cor-primaria);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(164, 201, 233, 0.2);
+}
+
+.developer-credit, .developer-credit a {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: var(--cor-branco);
+    transition: opacity 0.3s ease;
+}
+.developer-credit a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--cor-branco);
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background-color: var(--cor-primaria);
+  transform: translateY(-3px);
+  color: var(--cor-branco);
+}
+
+/* ==========================================================================
+   5. BOTÃO VOLTAR AO TOPO (GLOBAL)
+   ========================================================================== */
+#button_scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background-color 0.3s;
+}
+
+#button_scroll:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+}
+
+#button_scroll.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. PÁGINA: HOME (Sobre Nós)
+   ========================================================================== */
 #about_us .subtitle {
   color: var(--cor-primaria);
   font-family: var(--fonte-principal);
@@ -160,17 +423,557 @@ a:hover {
 #about_us h2 {
   font-size: 40px;
   line-height: 1.2;
-  font-weight: bold;
 }
 
 #about_us .sec-text {
   line-height: 1.8;
+  text-align: justify;
+  hyphens: auto;
 }
 
-/* --- 4.2 Boxes de Foco e Experiência --- */
 .vision-mission-sec .hover-box {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border-radius: 8px; /* Borda sutil para o efeito de sombra */
+  border-radius: 8px;
+  padding: 10px 0;
 }
 
-.vision-mission-sec .hover  
+.vision-mission-sec .hover-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+
+.vision-mission-sec .box-img {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.vision-mission-sec .box-img img {
+  width: 100%;
+  height: auto;
+}
+
+.vision-mission-sec h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.vision-mission-sec p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+#about_us .image-box {
+  position: relative;
+  margin-right: 60px;
+}
+
+#about_us .image-box img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+#about_us .image-box::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  bottom: 40px;
+  left: 40px;
+  border: 2px solid var(--cor-primaria);
+  z-index: 1;
+}
+
+/* ==========================================================================
+   8. PÁGINA: FALE CONOSCO
+   ========================================================================== */
+#banner {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: var(--cor-branco);
+}
+
+#banner .post-title {
+  font-size: 42px;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Título H1 específico do banner de contato */
+h1.post-title {
+  text-align: center;
+  color: #fff;
+}
+
+#contact .services-box:hover p, #contact .social-links a, #contact h5 {
+    color: #BF9874;
+}
+
+/* Tamanho da fonte para "Estamos à disposição..." */
+#contact h5 {
+    font-size: 1.5rem;
+}
+
+#contact .services-box{
+  background: #fff;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 15px rgba(0,0,0,0.1));
+  height: 225px;
+}
+
+#contact .services-box h6 {
+    font-size: 1.25rem; /* Aumenta o tamanho da fonte */
+}
+
+#contact .services-box:hover p{
+  color: #BF9874;
+}
+
+#contact .icon2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: var(--cor-primaria);
+  transition: transform 0.6s ease, color 0.3s ease;
+}
+
+#contact .services-box:hover .icon2{
+  transform: rotate(360deg);
+  color: var(--cor-secundaria); /* Adicionada a mudança de cor que estava faltando no original */
+}
+
+.contact-form {
+    background-color: var(--cor-secundaria);
+    padding-bottom: 50px;
+}
+
+.contact-form h2,
+.contact-form .contact-text {
+    color: var(--cor-branco);
+}
+
+#contact form .form-control {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 15px;
+  font-size: 15px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact form .form-control:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 6px rgba(191,152,116,0.4);
+  outline: none;
+}
+
+#contact form .btn {
+  width: 100%;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 15px;
+}
+
+#contact .social-links a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #34495E; /* Fundo mais escuro para os ícones */
+  color: var(--cor-branco);
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+#contact .social-links a:hover {
+  background: var(--cor-primaria);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   9. AJUSTES RESPONSIVOS (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 991px) {
+  .sec-padd {
+    padding: 60px 0;
+  }
+ 
+  #main-menu { display: none; }
+  .open-menu { display: block; }
+  .contact-info { display: none; }
+ 
+  .menu-header .order-div1 { text-align: left; }
+  .menu-header .order-div2 { text-align: right; }
+ 
+  #about_us h2, #choose_us h2 {
+    font-size: 32px;
+  }
+  #about_us .text-md-left {
+    text-align: center;
+  }
+  .vision-mission-sec .row {
+    margin-bottom: 30px !important;
+  }
+  .vision-mission-sec .col-md-8 {
+    margin-top: 15px;
+  }
+  #about_us .image-box {
+    margin: 40px 20px 0 20px;
+  }
+  #about_us .image-box::before {
+    top: -20px;
+    right: -20px;
+    bottom: 20px;
+    left: 20px;
+  }
+  .btn-div {
+    text-align: center;
+  }
+ 
+  #choose_us { padding: 0 20px; }
+  #choose_us .right-side-div { margin-top: 40px; }
+  
+/* O que vamos colocar (versão completa e correta): */
+
+/* Primeiro, removemos a regra de fundo escuro da seção */
+#latest_services {
+    background-color: var(--cor-branco); /* Fundo volta a ser branco */
+}
+
+/* E então aplicamos os estilos exatos do seu print no título */
+#latest_services h2 {
+    font-family: var(--fonte-titulos); /* Cormorant Garamond */
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #626B7D; /* Cor escura, agora legível no fundo branco */
+    font-weight: 10;
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+/* 2. Estilo base do card de serviço */
+#latest_services .project-box {
+    background-color: var(--cor-secundaria);
+    text-align: center;
+    padding: 40px 30px;
+    height: 100%;
+    border-radius: 0;
+    transition: all 0.3s ease;
+	cursor: pointer; /* << LINHA ADICIONADA */
+}
+
+/* 3. Estilo do título do card (H4) */
+#latest_services .project-box h4 {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: var(--fonte-titulos);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    transition: color 0.3s ease; /* Adiciona transição suave para a mudança de cor */
+}
+
+/* 4. Estilo do parágrafo do card (P) */
+#latest_services .project-box p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+/* O efeito agora acontece apenas no título H4, mudando sua cor */
+#latest_services .project-box:hover h4 {
+    color: var(--cor-primaria); /* Título fica com o branco suave no hover */
+}
+
+/* --- Fim do bloco de estilos para os cards --- */	
+
+}
+
+@media (max-width: 767px) {
+  #about_us .order-sec2 {
+    display: none;
+  }
+  .footer-bottom {
+    text-align: center;
+  }
+  .footer-social {
+    margin-top: 15px;
+    justify-content: center;
+    margin-left: -8px;
+  }
+ 
+  .footer-area .container > .row > [class^="col-"]:first-child,
+  .footer-area h4.title {
+      text-align: center;
+  }
+  .footer-area h4.title::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  /* Correção de alinhamento das listas no rodapé para mobile */
+  .footer-area .menu-footer,
+  .footer-area .contact-list {
+      text-align: left;
+      align-items: flex-start;
+  }
+
+  .footer-area .contact-list li {
+      justify-content: flex-start;
+      width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   11. COMPONENTE: SEÇÃO ESCURA (DARK SECTION)
+   ========================================================================== */
+
+.dark-section {
+    background-color: #001025;
+}
+
+/* Estiliza todos os títulos e parágrafos dentro da seção escura */
+/* DEPOIS */
+/* Estiliza os títulos com branco puro para máximo destaque */
+.dark-section h2,
+.dark-section h5 {
+    color: #ffffff;
+}
+
+/* Estiliza os parágrafos com um branco mais suave para conforto de leitura */
+.dark-section p {
+    color: rgba(255, 255, 255, 0.85); /* Branco com 85% de opacidade */
+}
+
+/* Deixa o texto em negrito (strong) com a cor primária para destaque */
+.dark-section .list-box strong {
+    color: var(--cor-primaria); /* Dourado */
+}
+
+/* Deixa o ícone de check com a cor primária */
+.dark-section .list-box i {
+    color: var(--cor-primaria);
+    padding-top: 5px; /* Ajuste fino de alinhamento vertical */
+}
+
+/* Melhora a visibilidade dos pontos de navegação do carrossel no fundo escuro */
+.dark-section .owl-dots .owl-dot span {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.dark-section .owl-dots .owl-dot.active span,
+.dark-section .owl-dots .owl-dot:hover span {
+    background-color: var(--cor-primaria);
+}
+
+
+/* ==========================================================================
+   12. CARROSSEL CUSTOMIZADO (TEMA ESCURO)
+   ========================================================================== */
+
+/* --- 1. Estilo do Card Branco --- */
+.dark-section .services-carousel .list-box {
+    background-color: var(--cor-branco);
+    border-radius: 0px; /* Cantos arredondados para suavizar */
+    padding: 15px;      /* Espaçamento interno generoso */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* A sombra que cria o efeito "recorte" */
+    border: none;       /* Garante que não haverá nenhuma borda */
+
+    /* LINHAS ADICIONADAS PARA ALINHAMENTO NO TOPO */
+    display: flex;
+    align-items: flex-start; 	
+	height: 130px;	
+}
+
+/* --- 2. Cores do Conteúdo no Fundo Branco --- */
+/* Ajusta a cor do parágrafo para o cinza padrão do site */
+.dark-section .services-carousel .list-box p {
+    color: var(--cor-texto);
+}
+
+/* Ajusta a cor do texto em negrito para o azul escuro, para bom contraste */
+.dark-section .services-carousel .list-box strong {
+    color: var(--cor-secundaria);
+}
+
+/* O ícone pode manter a cor primária (dourado), pois se destaca bem no branco */
+.dark-section .services-carousel .list-box i {
+    color: var(--cor-primaria);
+}
+
+
+/* --- 3. Estilo das Setas de Navegação --- */
+.dark-section .owl-nav button.owl-prev,
+.dark-section .owl-nav button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--cor-branco) !important; /* Fundo branco */
+    color: var(--cor-secundaria) !important; /* Seta azul escuro */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dark-section .owl-nav button.owl-prev:hover,
+.dark-section .owl-nav button.owl-next:hover {
+    background-color: var(--cor-primaria) !important; /* Fundo dourado no hover */
+    color: var(--cor-branco) !important; /* Seta branca no hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Posicionamento das setas */
+.dark-section .owl-nav button.owl-prev {
+    left: -20px;
+}
+
+.dark-section .owl-nav button.owl-next {
+    right: -20px;
+}
+
+/* ==========================================================================
+   13. AJUSTE DE ALTURA UNIFORME PARA CARDS (CARROSSEL)
+   ========================================================================== */
+
+/* Força os contêineres de cada slide e seus links a se esticarem verticalmente */
+.services-carousel .owl-item,
+.services-carousel .carousel-anchor,
+.services-carousel .item {
+    height: 100%;
+}
+
+/* ==========================================================================
+   14. OCULTAR SETAS DE NAVEGAÇÃO DO CARROSSEL
+   ========================================================================== */
+
+.dark-section .owl-nav {
+    display: none;
+}
+
+/* ==========================================================================
+   15. AJUSTE DE PADDING DA SEÇÃO ESCURA
+   ========================================================================== */
+
+.dark-section.sec-padd {
+    padding-top: 80px;
+    padding-bottom: 0px;
+}
+
+
+/* ==========================================================================
+   9. AJUSTES RESPONSIVOS (MEDIA QUERIES)
+   ========================================================================== */
+
+/* --- Desktop (Largura Mínima 992px) --- */
+@media (min-width: 992px) {
+
+    /* --- ESTILOS DO ELEMENTO DA IMAGEM --- */
+
+    /* 1. Efeito de sobreposição vertical */
+    .right-side-div .image-box {
+        margin-bottom: -60px; /* Ajuste o valor para mais ou menos sobreposição */
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Adiciona uma sombra para realçar o efeito 3D */
+    .right-side-div .image-box img {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 2. Alinhamento da imagem à direita da sua coluna */
+    .right-side-div {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* 3. Efeito de 'sangria' e respiro na borda da tela */
+    .dark-section .container-fluid {
+        padding-right: 30px; /* O 'respiro' de 30px na borda */
+        /* Garante que não haja outros paddings interferindo */
+        padding-left: 100px; /* Padding padrão do Bootstrap para a esquerda */
+    }
+
+    /* Garante que a coluna da imagem não tenha padding extra */
+    .dark-section .right-side-div {
+        padding-right: 0;
+    }
+    
+    /* --- OUTROS AJUSTES DE DESKTOP ... --- */
+	
+}
+
+
+/* ==========================================================================
+   16. SEÇÃO DE SERVIÇOS EM GRADE (VERSÃO CORRIGIDA)
+   ========================================================================== */
+
+
+/* Primeiro, removemos a regra de fundo escuro da seção */
+#latest_services {
+    background-color: var(--cor-branco); /* Fundo volta a ser branco */
+}
+
+/* E então aplicamos os estilos exatos do seu print no título */
+#latest_services h2 {
+    font-family: var(--fonte-titulos); /* Cormorant Garamond */
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #626B7D; /* Cor escura, agora legível no fundo branco */
+    font-weight: 10;
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+/* 2. Estilo base do card de serviço */
+#latest_services .project-box {
+    background-color: var(--cor-secundaria);
+    text-align: center;
+    padding: 40px 30px;
+    height: 100%;
+    border-radius: 0;
+    transition: all 0.3s ease;
+	cursor: pointer; /* << LINHA ADICIONADA */
+}
+
+/* 3. Estilo do título do card (H4) */
+#latest_services .project-box h4 {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: var(--fonte-titulos);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    transition: color 0.3s ease; /* Adiciona transição suave para a mudança de cor */
+}
+
+/* 4. Estilo do parágrafo do card (P) */
+#latest_services .project-box p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+/* O efeito agora acontece apenas no título H4, mudando sua cor */
+#latest_services .project-box:hover h4 {
+    color: var(--cor-primaria); /* Título fica com o branco suave no hover */
+}
+
+.credits-legal, .credits-legal a {
+    font-size: 12px;
+    opacity: 0.6;
+    margin: 5px 0 0 0;
+    color: var(--cor-branco);
+    transition: opacity 0.3s ease;
+}
+
+.credits-legal a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
