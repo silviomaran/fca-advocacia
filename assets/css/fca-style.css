@@ -907,6 +907,12 @@ h1.post-title {
         padding-right: 0;
     }
     
+    /* --- Ajuste de espaçamento do menu principal para desktop --- */
+    .header-menu .menu-header {
+        padding-left: 111px;  /* Empurra o logo para a direita */
+        padding-right: 110px; /* Recua o menu da borda direita */
+    }	
+	
     /* --- OUTROS AJUSTES DE DESKTOP ... --- */
 	
 }
