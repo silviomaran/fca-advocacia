@@ -786,7 +786,7 @@ h1.post-title {
     /* LINHAS ADICIONADAS PARA ALINHAMENTO NO TOPO */
     display: flex;
     align-items: flex-start; 	
-	height: 130px;	
+	height: 150px;	
 }
 
 /* --- 2. Cores do Conteúdo no Fundo Branco --- */
