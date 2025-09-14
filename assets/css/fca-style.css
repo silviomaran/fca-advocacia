@@ -223,12 +223,11 @@ a:hover {
   padding-top: 100px;  */
 
   background-color: var(--cor-secundaria);
-  padding-top: 40%;
-  background-image: url('../images/background/footer-bg______.png');  
+  padding-top: 22%;
+  background-image: url('../images/background/Aplicação 3D.png');  
   background-size: 100%;
   background-position: top center; /* Opcional, mas ajuda a centralizar a imagem */
   background-repeat: no-repeat; /* Garante que a imagem não se repita */  
-  
 }
 
 .footer-area .title {
