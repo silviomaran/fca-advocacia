@@ -149,6 +149,55 @@
 						</div>
 						<div class="col-lg-8">
 						
+							<form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="obrigado.html" aria-label="Formulário de Contato">
+
+								<input type="hidden" name="form-name" value="contato" />
+
+								<p class="hidden" style="display:none;">
+								  <label>Não preencha isto se você for humano: <input name="bot-field"></label>
+								</p>
+
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<input id="nome" name="nome" type="text" class="form-control" placeholder="Seu nome" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<input id="email" name="email" type="email" class="form-control" placeholder="Endereço de Email" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<input id="telefone" name="telefone" type="tel" class="form-control" placeholder="Número de telefone">
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form-group">
+											<input id="assunto" name="assunto" type="text" class="form-control" placeholder="Assunto (opcional)" value="Solicitação de Consultoria Jurídica">
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form-group">
+											<textarea id="mensagem" name="mensagem" rows="7" class="form-control" placeholder="Mensagem" required>
+Prezados,
+
+Escrevo para solicitar informações sobre uma consultoria jurídica.
+Gostaria de agendar uma conversa para apresentar meu caso e entender como poderia me auxiliar.
+
+Atenciosamente,
+											</textarea>
+										</div>
+									</div>
+									<div class="col-12">
+										<button class="btn" type="submit">Enviar Mensagem</button>										
+									</div>
+								</div>
+							</form>
+							</br>
+
+							<!--
 							<form id="form-contato-gmail" aria-label="Formulário de Contato" novalidate>
 								<div class="row">
 									<div class="col-md-6">
@@ -189,6 +238,8 @@ Atenciosamente,
 								</div>
 							</form>
 							</br>
+							-->
+							
 						</div>
 					</div>
 				</div>
