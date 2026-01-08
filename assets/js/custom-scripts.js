@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
     // --- LÓGICA DO FORMULÁRIO DE CONTATO PARA GMAIL ---
     const form = document.getElementById('form-contato-gmail');
     if (form) {
-        const DESTINATARIO = 'franciscocardoso@adv.oabsp.org.br';
+        const DESTINATARIO = 'advogado@franciscocardosoo.com.br';
 
         function enc(s) {
             return encodeURIComponent(s || '');
